@@ -1,0 +1,292 @@
+/*=============== FONT ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/*=============== VARIABLES CSS ===============*/
+:root{
+    --header-height: 56px;
+
+    /* COLOR */
+    --white-color: #fff;
+    --gray-color: hsl(0, 0%, 50%);
+    --black-color: hsl(220, 24%, 12%);
+    --body-color: hsl(220, 100%, 99%);
+
+    /* FONT */
+    --body-font: "Roboto", sans-serif;
+    --normal-font-size: 16px;
+
+    /* FONT WEIGHT */
+    --font-regular: 400;
+    --font-semi-bold: 600;
+
+    /* Z INDEX */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+
+/*=============== BASE ===============*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+/*=============== CLASS ===============*/
+.container{
+    max-width: 1120px;
+    margin-inline: 24px;
+}
+
+
+/*=============== HEADER ===============*/
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--white-color);
+    box-shadow: hsla(220, 32%, 8%, .3);
+    z-index: var(--z-fixed);
+}
+
+
+/*=============== NAV ===============*/
+.nav{
+    height: var(--header-height);
+}
+
+.nav__logo,
+.nav__burger,
+.nav__close{
+    color: var(--black-color);
+}
+
+.nav__data{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo{
+    display: inline-flex;
+    align-items: center;
+    column-gap: 4px;
+    font-weight: var(--font-semi-bold);
+}
+
+.nav__logo i{
+    font-weight: initial;
+    font-size: 28px;
+}
+
+.nav__toggle{
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+
+.nav__burger,
+.nav__close{
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    inset: 0;
+    margin: auto;
+    font-size: 20px;
+    cursor: pointer;
+    transition: opacity .1s, transform .4s;
+}
+
+.nav__close{
+    opacity: 0;
+}
+
+/*=============== NAV MOBILE ===============*/
+@media screen and (max-width: 1118px){
+    .nav__menu{
+        position: absolute;
+        left: 0;
+        top: 40px;
+        width: 100%;
+        background-color: var(--gray-color);
+        height: calc(100vh - 56px);
+        overflow: auto;
+        pointer-events: none;
+        opacity: 0;
+        transition: top .4s, opacity .3s;
+    }
+
+    .nav__menu::-webkit-scrollbar{
+        width: 0;
+    }
+    .nav__list{
+        background-color: var(--white-color);
+        padding-top: 16px;
+
+    }
+}
+
+.nav__link{
+    color: var(--black-color);
+    background-color: var(--white-color);
+    font-weight: var(--font-semi-bold);
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color .3s;
+}
+
+
+/*=============== SHOW MENU ===============*/
+.show-menu{
+    opacity: 1;
+    top: 56px;
+    pointer-events: initial;
+}
+
+
+/*=============== SHOW ICON ===============*/
+.show-icon .nav__burger{
+    opacity: 0;
+    transform: rotate(90deg);
+}
+.show-icon .nav__close{
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+
+/*=============== DROPDOWN ===============*/
+.dropdown__item{
+    cursor: pointer;
+}
+
+.dropdown__arrow{
+    font-size: 20px;
+    font-weight: initial;
+    transition: transform .4s;
+}
+
+.dropdown__link{
+    padding: 20px 20px 20px 40px;
+    color: var(--black-color);
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    font-weight: var(--font-semi-bold);
+    transition: background-color .3s;
+}
+
+.dropdown__link:hover{
+    color: black;
+}
+
+.dropdown__menu{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .6s ease-out;
+}
+
+/*=============== SHOW DROPDOWN MENU ===============*/
+.dropdown__item:hover .dropdown__menu{
+    max-height: 1000px;
+    transition: max-height .8s ease-in;
+}
+
+
+/*=============== ROTATE DROPDOWN ICON ===============*/
+.dropdown__item:hover .dropdown__arrow{
+    transform: rotate(180deg);
+}
+
+
+/*=============== BREAKPOINT ===============*/
+/* mobile */
+@media screen and (max-width: 340px){
+    .container{
+        margin-inline: 16px;
+    }
+
+    .nav__link{
+        padding-inline: 16px;
+    }
+}
+
+/* tablet or desktop */
+@media screen and (min-width: 1118px) {
+    .container{
+        margin-inline: auto;
+    }
+
+    .nav{
+        height: calc(var(--header-height) + 32px);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav__toggle{
+        display: none;
+    }
+
+    .nav__list{
+        height: 100%;
+        display: flex;
+        column-gap: 48px;
+    }
+
+    .nav__link{
+        height: 100%;
+        padding: 0;
+        justify-content: initial;
+        column-gap: 4px;
+    }
+
+    .nav__link:hover{
+        background-color: transparent;
+    }
+
+
+    .dropdown__menu{
+        max-height: initial;
+        overflow: initial;
+        position: absolute;
+        left: auto;
+        top: 96px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s, top .3s;
+    }
+
+    .dropdown__link{
+        padding-inline: 16px 56px;
+    }
+
+    /* SHOW DROPDOWN MENU */
+    .dropdown__item:hover .dropdown__menu{
+        opacity: 1;
+        top: 88px;
+        pointer-events: initial;
+        transition: top .3s;
+    }
+    
+}
