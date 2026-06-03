@@ -287,6 +287,89 @@ a{
         top: 88px;
         pointer-events: initial;
         transition: top .3s;
+    }   
+}
+
+/*=============== BANNER ===============*/
+.banner{
+    margin-top: 88px;
+    position: relative;
+}
+
+.banner__img{
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+.banner__content{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.banner__title{
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.banner__description{
+    margin-bottom: 24px;
+}
+
+.banner__button{
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: 12px 24px;
+}
+
+/*=============== SECTION TITLE ===============*/
+.section__title{
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+/*=============== CATEGORY ===============*/
+.category{
+    padding: 40px 0;
+    margin: 0 12px;
+}
+
+.category__container{
+    display: flex;
+    gap: 8px;
+}
+
+.category__img{
+    width: 100%;
+    height: 580px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/*=============== FOOTER ===============*/
+.footer{
+    background-color: white;
+    border-top: 1px solid #ddd;
+    padding: 60px 0;
+}
+
+.footer__container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 40px;
+}
+
+/*=============== RESPONSIVE ===============*/
+
+@media screen and (max-width: 1118px){
+
+    .banner__img{
+        height: 300px;
     }
-    
 }
