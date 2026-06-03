@@ -369,7 +369,16 @@ a{
 
 @media screen and (max-width: 1118px){
 
+    .banner__title{
+        font-size: 20px;
+    }
+
     .banner__img{
         height: 300px;
     }
+
+    .category__container{
+        display: contents;
+    }
+
 }
